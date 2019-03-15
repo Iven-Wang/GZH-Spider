@@ -232,10 +232,11 @@ class GzhSpyder:
                 query_fakeid_response = requests.get(appmsg_url, cookies=cookies, headers=header, params=query_id_data)
                 fakeid_list = query_fakeid_response.json().get('app_msg_list')
 
+                
                 stopvalue = 0
                 time1 = '0'
-                try:
-                    for item in fakeid_list:
+                for item in fakeid_list:
+                    try:
                         url = item.get('link')
                         # print(url)
                         # file_handler.write(item.get('link'))
@@ -246,13 +247,13 @@ class GzhSpyder:
                         if time == self.stoptime:
                             stopvalue += 1
                             break
-                        # file_handler.write('\n')
-                    num -= 1
-                    begin = int(begin)
-                    begin+=5
-                    # time.sleep(2)
-                except:
-                    break
+                    except:
+                        continue
+                num -= 1
+                begin = int(begin)
+                begin+=5
+                # time.sleep(2)
+
                 if stopvalue == 1:
                     break
 
