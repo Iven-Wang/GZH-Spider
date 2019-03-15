@@ -3,6 +3,7 @@ from selenium import webdriver
 from pprint import pprint
 
 class GzhSpyder:
+
     def __init__(self,path,userid,pwd,gzlist,stoptime,mysqlinfo):
         self.path = path
         self.userid = userid
@@ -259,6 +260,6 @@ class GzhSpyder:
         conn.close()
 
 
-a = GzhSpyder('/Users/sure/Downloads/chromedriver','tjwangcs@gmail.com','cs981124',['jrqzhp'],'2019-03-08',['root','asd12345','tset'])
+a = GzhSpyder('Chromedriver位置','公众号ID','公众号pwd',['jrqzhp'],'爬取推文截止日期',['数据库uid','数据库pwd','数据库名'])
 a.getcookie()
 a.start()
